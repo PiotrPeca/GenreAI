@@ -1,0 +1,3 @@
+# GenreAI
+
+Here will be our project description soon...

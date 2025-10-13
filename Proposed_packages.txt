@@ -1,0 +1,28 @@
+NAJWAŻNIEJSZE:
+numpy
+pandas
+matplotlib
+tensorflow
+keras
+scikit-learn
+librosa - przetwarzanie audio
+pyaudio - odtwarzanie dźwięku
+
+POBOCZNE:
+tkinter - tworzenie GUI
+pyqtgraph - interaktywna wizualizacja danych używany z pyqt
+random
+struct - dekodowanie danych binarnych
+time
+
+sys - interakcja z interpreterem pythona
+os - interakcja z systemem
+h5py - praca z plikami .hdf5 (przechowywanie modeli)
+itertools - praca z iteracjami i kombinacjami
+copy - kopiowanie głębokie złożonych struktur danych
+collections - rozszerzone typy danych
+tqdm - paski postępu dla pętli
+xgboost - drzewa decyzyjne
+lightgbm - ala xgboost
+seaborn - ala matplotlib
+scipy - obliczenia naukowe
