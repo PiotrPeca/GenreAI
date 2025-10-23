@@ -1,3 +1,4 @@
+jupyter
 numpy
 pandas
 matplotlib
@@ -5,4 +6,4 @@ tensorflow
 keras
 scikit-learn
 librosa
-pyaudio
+ipython

@@ -17,7 +17,7 @@ The model for music genre classification was developed and trained using **Pytho
 - **TensorFlow / Keras**
 - **Scikit-learn**
 - **Librosa** – audio feature extraction (MFCC, chroma, mel-spectrogram, etc.)  
-- **PyAudio** – audio input/output handling (recording, playback)
+- **IPython** – audio input/output handling (recording, playback)
 
 The trained model is exported in `.h5` or `.pt` format and served through a REST API for integration with the web app.
 
@@ -30,11 +30,12 @@ The web application enables users to interact with the model through a modern an
 #### Backend
 - **Node.js** – JavaScript runtime environment  
 - **Express.js** – server-side framework for building REST APIs  
-- **Axios** – handles communication between Node.js and the Python ML API (Flask/FastAPI)
+- **Fetch API** – handles communication between front-end and back-end
 
 #### Frontend
-- **Angular**
-- **HTML5 / CSS3 / TypeScript / JavaScript**
+- **HTML** – structure of the website
+- **CSS** – visual aspect of the website
+- **JavaScript** – functionality of the website (audio file upload)
 
 ---
 
@@ -45,4 +46,4 @@ The web application enables users to interact with the model through a modern an
 
 ---
 
-💡 *The project integrates a Python-based machine learning model with a Node.js + Angular web stack, allowing users to upload audio files and receive real-time genre classification results.*
+💡 *The project integrates a Python-based machine learning model with a web application, allowing users to upload audio files and receive real-time genre classification results.*
