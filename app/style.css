@@ -1,0 +1,98 @@
+/* ======= BASIC STYLING ======= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-main-color: #2E1E6F;
+    --background-main-color: #72e3eb;
+    --background-light-color: #daf4f8;
+    --hover-main-color: #4f38ad;
+}
+
+body {
+    background-color: var(--background-main-color);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--font-main-color);
+    height: 100vh;
+    font-size: 1.5vw;
+    font-weight: 900;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-main-color);
+}
+
+/* ======= HEADER AND NAVBAR ======= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--background-light-color);
+    padding: 10px;
+    box-shadow: 0 0 10px var(--font-main-color);
+}
+
+.header a {
+    transition: all 0.2s;
+}
+
+.header a:hover {
+    color: var(--hover-main-color);
+}
+
+/* ======= MAIN BODY ======= */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======= NAME AND LOGO ======= */
+.name-and-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    max-width: 30vw;
+}
+
+.name-and-logo img {
+    overflow: hidden;
+}
+
+/* ======= UPLOAD AUDIO FIELD ======= */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 1em;
+    gap: 1em;
+    width: 35vw;
+
+    background-color: var(--background-light-color);
+    border: 0.15rem solid rgb(95, 193, 231);
+    border-radius: 15px;
+}
+
+.upload-btn {
+    background: var(--font-main-color);
+	color: white;
+	border: none;
+    border-radius: 10px;
+	padding: 0.75em;
+	font: inherit;
+    font-size: 0.75em;
+	cursor: pointer;
+    transition: all 0.2s;
+}
+
+.upload-btn:hover {
+    background-color: var(--hover-main-color);
+    transform: scale(1.1);
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenreAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="/app/">
+            <i id="note-icon" class="fa-solid fa-music"></i>
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#login">Login</a>
+        </nav>
+    </header>
+    <main class="main">
+        <a href="/app/" class="name-and-logo">
+            <img src="images/GenreAI logo.png" alt="Logo GenreAI">
+            <h1 class="app-name">GenreAI</h1>
+        </a>
+        <div id="drop-zone" class="upload-container">
+            <p>Drag and drop audio file</p>
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="audio-file" name="audioFile" accept="audio/*" hidden>
+                <button class="upload-btn" type="button" onclick="document.getElementById('audio-file').click()">Upload audio file</button>
+            </form>
+        </div>
+        <div id="result" class="upload-container" style="display: none;">
+            Wynik
+        </div>
+    </main>
+</body>
+</html>
