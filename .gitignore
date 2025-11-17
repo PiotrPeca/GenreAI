@@ -1,3 +1,7 @@
 venv
 .venv
 .idea
+
+# MODEL formats
+*.h5
+*.keras
