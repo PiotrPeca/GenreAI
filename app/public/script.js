@@ -30,7 +30,7 @@ function uploadFile(file) {
     const formData = new FormData();
     formData.append('audioFile', file);
     
-    fetch('/upload', {
+    fetch('/api/upload', {
         method: 'POST',
         body: formData
     })

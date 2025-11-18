@@ -1,0 +1,4 @@
+### GET WEBSITE
+GET http://localhost:5000
+
+### POST FILE
