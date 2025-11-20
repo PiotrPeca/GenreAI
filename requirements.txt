@@ -3,7 +3,6 @@ numpy
 pandas
 matplotlib
 tensorflow
-keras
 scikit-learn
 librosa
 ipython
