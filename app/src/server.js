@@ -2,11 +2,14 @@ import express from 'express'
 import multer from 'multer'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { spawn } from 'child_process'
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+const pythonPath = path.join(__dirname, "classifier.py")
 
 const upload = multer({ dest: path.join(__dirname, '../uploads/') });
 
@@ -25,7 +28,24 @@ app.post('/api/upload', upload.single('audioFile'), (req, res) => {
     }
 
     console.log('File uploaded', req.file);
-    res.json({ genre: 'Rock' });
+    const pythonProcess = spawn('python', [pythonPath, req.file.path]);
+
+    let dataFromPython = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+        dataFromPython += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error('Python error:', data.toString());
+    })
+
+    pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+            return res.status(500).json({ error: 'Python script failed' });
+        }
+        res.json({ genre: dataFromPython.trim() });
+    })
 })
 
 app.listen(PORT, () => {
