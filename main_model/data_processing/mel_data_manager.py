@@ -76,13 +76,14 @@ class MelDataManager:
             raise ValueError("Brak danych — wywołaj najpierw load_or_build_cache()")
         return train_test_split(self.data, self.labels, test_size=test_size, random_state=random_state)
 
-    def plot_example(self, idx):
-        if self.data is None or self.labels is None:
-            raise ValueError("Brak danych — wywołaj najpierw load_or_build_cache()")
-        x = self.data[idx]
-        y = self.labels[idx]
-        class_idx = int(np.argmax(y)) if np.ndim(y) > 0 and len(np.shape(y)) > 0 and np.size(y) > 1 else int(y)
-        plt.imshow(x.squeeze(), aspect='auto')
-        plt.title(f"Spektrogram nr {idx} (Etykieta: {class_idx})")
-        plt.colorbar()
-        plt.show()
+    #W RAZIE CHECI UZYCIA DO POPRAWY
+    # def plot_example(self, idx):
+    #     if self.data is None or self.labels is None:
+    #         raise ValueError("Brak danych — wywołaj najpierw load_or_build_cache()")
+    #     x = self.data[idx]
+    #     y = self.labels[idx]
+    #     class_idx = int(np.argmax(y)) if np.ndim(y) > 0 and len(np.shape(y)) > 0 and np.size(y) > 1 else int(y)
+    #     plt.imshow(x.squeeze(), aspect='auto')
+    #     plt.title(f"Spektrogram nr {idx} (Etykieta: {class_idx})")
+    #     plt.colorbar()
+    #     plt.show()

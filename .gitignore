@@ -26,3 +26,9 @@ Thumbs.db
 # Audio files
 uploads/*
 !uploads/.gitkeep
+
+# Data cache (tylko pliki cache, nie cały folder!)
+data/processed/*.npz
+data/genres_original/*.wav
+data/genres_original/*.mp3
+data/genres_original/*.au
