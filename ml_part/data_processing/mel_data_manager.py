@@ -76,6 +76,47 @@ class MelDataManager:
             raise ValueError("Brak danych — wywołaj najpierw load_or_build_cache()")
         return train_test_split(self.data, self.labels, test_size=test_size, random_state=random_state)
 
+    def predict_file(self, audio_path, return_rgb=True):
+        """
+        Przetwarza dowolny plik audio na mel-spektrogramy zgodnie z parametrami klasy
+        (chunk_duration, overlap_duration, target_shape). Przydatne do predykcji
+        nowych piosenek spoza bazy.
+
+        Args:
+            audio_path: ścieżka do pliku audio (.wav/.mp3/.flac itp.)
+            return_rgb: gdy True zwraca 3 kanały (do transfer learningu),
+                        gdy False zwraca 1 kanał (grayscale)
+
+        Returns:
+            np.ndarray o kształcie (N_chunks, H, W, 3) lub (N_chunks, H, W, 1)
+        """
+        from tensorflow.image import resize
+
+        audio_data, sample_rate = librosa.load(audio_path, sr=None)
+
+        chunk_samples = int(sample_rate * self.chunk_duration)
+        overlap_samples = int(sample_rate * self.overlap_duration)
+        denom = max(chunk_samples - overlap_samples, 1)
+        num_of_chunks = int(np.ceil(max(len(audio_data) - chunk_samples, 0) / denom)) + 1
+
+        spectrograms = []
+        for i in range(num_of_chunks):
+            start = i * denom
+            end = start + chunk_samples
+            chunk = audio_data[start:end]
+
+            mel = librosa.feature.melspectrogram(y=chunk, sr=sample_rate)
+            mel = mel.astype(np.float32)
+            mel = resize(np.expand_dims(mel, axis=-1), self.target_shape)
+            spectrograms.append(mel)
+
+        result = np.array(spectrograms)
+        if return_rgb:
+            result = np.repeat(result, 3, axis=-1)
+
+        print(f"Przetworzono {audio_path}: {num_of_chunks} chunków, shape: {result.shape}")
+        return result
+
     #W RAZIE CHECI UZYCIA DO POPRAWY
     # def plot_example(self, idx):
     #     if self.data is None or self.labels is None:
