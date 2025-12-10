@@ -9,7 +9,8 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const pythonPath = path.join(__dirname, "classifier.py")
+const pythonPath = path.join(__dirname, "classifier.py");
+const pythonExecutable = path.join(__dirname, '../../.venv/Scripts/python.exe');
 
 const upload = multer({ dest: path.join(__dirname, '../uploads/') });
 
@@ -19,7 +20,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 })
 
 app.post('/api/upload', upload.single('audioFile'), (req, res) => {
@@ -28,7 +29,7 @@ app.post('/api/upload', upload.single('audioFile'), (req, res) => {
     }
 
     console.log('File uploaded', req.file);
-    const pythonProcess = spawn('python', [pythonPath, req.file.path]);
+    const pythonProcess = spawn(pythonExecutable, [pythonPath, req.file.path]);
 
     let dataFromPython = '';
 

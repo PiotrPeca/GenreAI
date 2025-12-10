@@ -2,7 +2,6 @@ jupyter
 numpy
 pandas
 matplotlib
-tensorflow
 scikit-learn
 librosa
 ipython
