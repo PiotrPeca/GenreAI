@@ -114,7 +114,6 @@ class MelDataManager:
         if return_rgb:
             result = np.repeat(result, 3, axis=-1)
 
-        print(f"Przetworzono {audio_path}: {num_of_chunks} chunków, shape: {result.shape}")
         return result
 
     #W RAZIE CHECI UZYCIA DO POPRAWY
