@@ -3,6 +3,7 @@ import numpy as np
 import librosa
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from tensorflow.image import resize
 
 class MelDataManager:
     def __init__(
@@ -24,7 +25,6 @@ class MelDataManager:
         self.labels = None
 
     def _preprocess(self):
-        from tensorflow.image import resize
         
         melspectrograms_list = []
         labels_list = []
