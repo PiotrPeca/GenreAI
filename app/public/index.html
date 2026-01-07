@@ -24,11 +24,15 @@
             <h1 class="app-name">GenreAI</h1>
         </a>
         <div id="drop-zone" class="upload-container">
-            <p>Drag and drop audio file</p>
-            <form id="upload-form" enctype="multipart/form-data">
-                <input type="file" id="audio-file" name="audioFile" accept="audio/*" hidden>
-                <button class="upload-btn" type="button" onclick="document.getElementById('audio-file').click()">Upload audio file</button>
-            </form>
+            <div id="upload-content">
+                <p>Drag and drop audio file</p>
+                <i class="fa-solid fa-folder"></i>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" id="audio-file" name="audioFile" accept="audio/*" hidden>
+                    <button class="upload-btn" type="button" onclick="document.getElementById('audio-file').click()">Upload audio file</button>
+                </form>
+            </div>
+            <div id="loader-animation" class="loader" style="display: none;"></div>
         </div>
         <div id="result" class="upload-container" style="display: none;">
             Wynik
