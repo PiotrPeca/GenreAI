@@ -31,7 +31,8 @@ class MelDataManager:
         for class_number, class_name in enumerate(self.classes):
             class_folder = os.path.join(self.data_folder, class_name)
             print(f'Processing of class {class_name} data is ongoing')
-            for filename in os.listdir(class_folder):
+            # Sortujemy pliki, aby kolejność była zawsze taka sama (determinizm przy budowaniu cache)
+            for filename in sorted(os.listdir(class_folder)):
                 if not filename.endswith('.wav'):
                     continue
                 file_path = os.path.join(class_folder, filename)

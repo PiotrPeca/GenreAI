@@ -12,7 +12,7 @@ sys.path.append(ml_part_dir)
 from data_processing import MelDataManager
 
 audio_file_path = sys.argv[1]
-model_path = os.path.join(ml_part_dir, 'models', 'first_model.keras')
+model_path = os.path.join(ml_part_dir, 'models', 'CNN_1.keras')
 
 classes = ['blues', 'classical', 'country', 'disco', 'hiphop','jazz', 'metal', 'pop', 'reggae', 'rock']
 first_model = tf.keras.models.load_model(model_path)
