@@ -71,8 +71,10 @@ a {
     text-align: center;
     border-radius: 10px;
 
-    background: transparent;
-    backdrop-filter: blur(4px);
+    background: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
 }
 
 #drop-area {
@@ -140,4 +142,28 @@ a {
     margin-top: 20px;
     padding: 1em;
     text-align: center;
+}
+
+/* ======= AUDIO PLAYER ======= */
+#audio-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    padding: 8px 12px;
+
+    background: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+
+    transition: all 0.2s;
+    display: none;
+}
+
+#audio-player:hover {
+    background: rgba(30, 30, 30, 0.45);
+    border-color: rgba(255, 255, 255, 0.4);
 }

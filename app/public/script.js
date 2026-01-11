@@ -31,7 +31,10 @@ dropArea.addEventListener('drop', (e) => {
     e.preventDefault();
     dropArea.classList.remove('dragging');
     folderIcon.classList.replace('fa-folder-open', 'fa-folder');
+    
     const file = e.dataTransfer.files[0];
+
+    playPreview(file);
     uploadFile(file);
 })
 
@@ -48,6 +51,7 @@ dropArea.addEventListener('mouseout', () => {
 inputFile.addEventListener('change', () => {
     const file = inputFile.files[0];
 
+    playPreview(file);
     uploadFile(file);
 });
 
@@ -77,4 +81,14 @@ function uploadFile(file) {
         genreResult.textContent = "Sorry, an error occured!";
         console.error('Error:', error);
     });
+}
+
+// ============= AUDIO PLAYER =============
+const audioPlayer = document.querySelector("#audio-player");
+
+function playPreview(file) {
+    const url = URL.createObjectURL(file);
+    audioPlayer.src = url;
+    audioPlayer.style.display = 'block';
+    audioPlayer.play();
 }
