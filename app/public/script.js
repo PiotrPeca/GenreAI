@@ -72,7 +72,12 @@ function uploadFile(file) {
         loader.style.display = 'none';
         dropArea.style.display = 'flex';
         genreResult.style.display = 'flex';
-        genreResult.textContent = `Genre: ${data.genre}`;
+
+        const list = data.result
+            .map(item => `${item.genre} - ${(item.probability * 100).toFixed(1)}%`)
+            .join("<br>")
+        
+            genreResult.innerHTML = list;
     })
     .catch(error => {
         loader.style.display = 'none';

@@ -45,7 +45,13 @@ app.post('/api/upload', upload.single('audioFile'), (req, res) => {
         if (code !== 0) {
             return res.status(500).json({ error: 'Python script failed' });
         }
-        res.json({ genre: dataFromPython.trim() });
+        try {
+            const parsed = JSON.parse(dataFromPython.trim())
+            res.json({ result: parsed });
+        } catch (err) {
+            console.error("JSON parse error: ", err);
+            res.status(500).json({ error: "Invalid model output" });
+        }
     })
 })
 
