@@ -1,0 +1,67 @@
+========== CNN 1 ==========
+Dokładność na zbiorze testowym: 75.26%
+Strata na zbiorze testowym: 1.0590
+
+Raport klasyfikacji:
+              precision    recall  f1-score   support
+
+       blues       0.67      0.76      0.72       302
+   classical       0.89      0.87      0.88       298
+     country       0.68      0.56      0.61       317
+       disco       0.78      0.75      0.76       312
+      hiphop       0.81      0.81      0.81       277
+        jazz       0.66      0.89      0.76       311
+       metal       0.90      0.88      0.89       302
+         pop       0.73      0.79      0.76       289
+      reggae       0.78      0.69      0.73       296
+        rock       0.66      0.54      0.59       291
+
+    accuracy                           0.75      2995
+   macro avg       0.76      0.75      0.75      2995
+weighted avg       0.76      0.75      0.75      2995
+
+========== CNN 2 ==========
+Dokładność na zbiorze testowym: 76.59%
+Strata na zbiorze testowym: 1.0382
+
+Raport klasyfikacji:
+              precision    recall  f1-score   support
+
+       blues       0.71      0.76      0.73       302
+   classical       0.84      0.89      0.86       298
+     country       0.65      0.69      0.67       317
+       disco       0.79      0.75      0.77       312
+      hiphop       0.79      0.81      0.80       277
+        jazz       0.74      0.83      0.78       311
+       metal       0.88      0.90      0.89       302
+         pop       0.86      0.72      0.79       289
+      reggae       0.77      0.71      0.73       296
+        rock       0.65      0.59      0.62       291
+
+    accuracy                           0.77      2995
+   macro avg       0.77      0.77      0.77      2995
+weighted avg       0.77      0.77      0.77      2995
+
+========== LSTM ==========
+Dokładność na zbiorze testowym: 69.35%
+Strata na zbiorze testowym: 1.4448
+
+Raport klasyfikacji:
+              precision    recall  f1-score   support
+
+       blues       0.66      0.76      0.71       302
+   classical       0.85      0.89      0.87       298
+     country       0.62      0.53      0.57       317
+       disco       0.70      0.71      0.70       312
+      hiphop       0.80      0.64      0.71       277
+        jazz       0.67      0.76      0.71       311
+       metal       0.89      0.84      0.86       302
+         pop       0.71      0.73      0.72       289
+      reggae       0.57      0.57      0.57       296
+        rock       0.50      0.51      0.50       291
+
+    accuracy                           0.69      2995
+   macro avg       0.70      0.69      0.69      2995
+weighted avg       0.70      0.69      0.69      2995
+
+========== Transfer Learning ==========
