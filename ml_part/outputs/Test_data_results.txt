@@ -1,0 +1,50 @@
+========== CNN 1 ==========
+Dokładność na zbiorze treningowym: 97.05%
+Strata na zbiorze treningowym: 0.1088
+
+Dokładność na zbiorze walidacyjnym: 74.50%
+Strata na zbiorze walidacyjnym: 1.1084
+
+Dokładność na zbiorze testowym: 75.59%
+Strata na zbiorze testowym: 1.0865
+
+========== CNN 2 ==========
+Dokładność na zbiorze treningowym: 91.11%
+Strata na zbiorze treningowym: 0.2503
+
+Dokładność na zbiorze walidacyjnym: 76.13%
+Strata na zbiorze walidacyjnym: 0.9069
+
+Dokładność na zbiorze testowym: 77.90%
+Strata na zbiorze testowym: 0.9189
+
+========== LSTM ==========
+Dokładność na zbiorze treningowym: 96.21%
+Strata na zbiorze treningowym: 0.1098
+
+Dokładność na zbiorze walidacyjnym: 66.94%
+Strata na zbiorze walidacyjnym: 1.5902
+
+Dokładność na zbiorze testowym: 69.35%
+Strata na zbiorze testowym: 1.4448
+
+========== Transfer Learning Before Fine Tuning ==========
+Dokładność na zbiorze treningowym: 79.71%
+Strata na zbiorze treningowym: 0.5537
+
+Dokładność na zbiorze walidacyjnym: 75.63%
+Strata na zbiorze walidacyjnym: 0.7220
+
+Dokładność na zbiorze testowym: 77.23%
+Strata na zbiorze testowym: 0.7098
+
+========== Transfer Learning After Fine Tuning ==========
+Dokładność na zbiorze treningowym: 77.90%
+Strata na zbiorze treningowym: 0.6233
+
+Dokładność na zbiorze walidacyjnym: 74.58%
+Strata na zbiorze walidacyjnym: 0.7600
+
+Dokładność po fine-tuningu: 76.16%
+Strata po fine-tuningu: 0.7151
+Poprawa: -1.07 punktów procentowych

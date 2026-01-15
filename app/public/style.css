@@ -1,38 +1,34 @@
 /* ======= BASIC STYLING ======= */
 * {
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-}
-
-:root {
-    --font-main-color: #2E1E6F;
-    --background-main-color: #72e3eb;
-    --background-light-color: #daf4f8;
-    --hover-main-color: #4f38ad;
+    color: rgb(131, 236, 252);
 }
 
 body {
-    background-color: var(--background-main-color);
-    font-family: 'Courier New', Courier, monospace;
-    color: var(--font-main-color);
+    background-image: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    font-size: 1.5vw;
+    font-size: 1.5em;
     font-weight: 900;
 }
 
 a {
     text-decoration: none;
-    color: var(--font-main-color);
 }
 
 /* ======= HEADER AND NAVBAR ======= */
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--background-light-color);
+    background: transparent;
+    backdrop-filter: blur(10px);
     padding: 10px;
-    box-shadow: 0 0 10px var(--font-main-color);
+    box-shadow: 0 0 10px #2E1E6F;
 }
 
 .header a {
@@ -40,7 +36,7 @@ a {
 }
 
 .header a:hover {
-    color: var(--hover-main-color);
+    color: rgba(131, 236, 252, 0.691);
 }
 
 /* ======= MAIN BODY ======= */
@@ -65,53 +61,55 @@ a {
 }
 
 /* ======= UPLOAD AUDIO FIELD ======= */
-.upload-container {
-    height: 25vh;
-    width: 35vw;
-
+.main-area {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
 
-    background-color: var(--background-light-color);
-    border: 0.15rem solid rgb(95, 193, 231);
-    border-radius: 15px;
+    background: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
 }
 
-#upload-content {
+#drop-area {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgb(131, 236, 252);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-
-    padding: 1em;
-    gap: 1em;
+    cursor: pointer;
 }
-
-.upload-btn {
-    background: var(--font-main-color);
-	color: white;
-	border: none;
-    border-radius: 10px;
-	padding: 0.75em;
-	font: inherit;
+#drop-area i {
+    margin-bottom: 25px;
+}
+#drop-area span {
+    display: block;
     font-size: 0.75em;
-	cursor: pointer;
-    transition: all 0.2s;
+    color: rgba(131, 236, 252, 0.665);
+    margin-top: 25px;
 }
-
-.upload-btn:hover {
-    background-color: var(--hover-main-color);
-    transform: scale(1.1);
+#drop-area.dragging{
+    border-color: rgba(131, 236, 252, 0.665);
+    background-color: rgba(131, 236, 252, 0.288);
+    transition: 0.2s;
 }
 
 /* HTML: <div class="loader"></div> */
 .loader {
   width: 40px;
   aspect-ratio: 1;
-  --c: linear-gradient(var(--font-main-color) 0 0);
-  --r1: radial-gradient(farthest-side at bottom,var(--font-main-color) 93%,#0000);
-  --r2: radial-gradient(farthest-side at top   ,var(--font-main-color) 93%,#0000);
+  --c: linear-gradient(rgb(131, 236, 252) 0 0);
+  --r1: radial-gradient(farthest-side at bottom,rgb(131, 236, 252) 93%,#0000);
+  --r2: radial-gradient(farthest-side at top   ,rgb(131, 236, 252) 93%,#0000);
   background: 
     var(--c) ,var(--r1),var(--r2),
     var(--c) ,var(--r1),var(--r2),
@@ -144,4 +142,28 @@ a {
     margin-top: 20px;
     padding: 1em;
     text-align: center;
+}
+
+/* ======= AUDIO PLAYER ======= */
+#audio-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    padding: 8px 12px;
+
+    background: rgba(30, 30, 30, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+
+    transition: all 0.2s;
+    display: none;
+}
+
+#audio-player:hover {
+    background: rgba(30, 30, 30, 0.45);
+    border-color: rgba(255, 255, 255, 0.4);
 }
