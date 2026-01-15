@@ -13,6 +13,7 @@ sys.path.append(ml_part_dir)
 from data_processing import MelDataManager
 
 audio_file_path = sys.argv[1]
+# You can choose the model that will classify the music here
 model_path = os.path.join(ml_part_dir, 'models', 'CNN_1.keras')
 
 classes = ['blues', 'classical', 'country', 'disco', 'hiphop','jazz', 'metal', 'pop', 'reggae', 'rock']
