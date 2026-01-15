@@ -137,11 +137,33 @@ a {
 }
 
 #result {
+    flex-direction: column;
+    font-size: 0.75em;
     height: auto;
     min-height: 80px;
     margin-top: 20px;
     padding: 1em;
     text-align: center;
+}
+
+.details-toggle {
+    padding: 10px;
+    cursor: pointer;
+}
+.details-toggle * {
+    transition: color 0.2s ease;
+}
+.details-toggle:hover * {
+    color: rgba(131, 236, 252, 0.691);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.details-content.open {
+    max-height: 200px;
 }
 
 /* ======= AUDIO PLAYER ======= */

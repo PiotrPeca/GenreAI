@@ -15,6 +15,8 @@ const inputFile = document.querySelector("#input-file");
 const folderIcon = document.querySelector("#folder-icon");
 const loader = document.querySelector("#loader-animation");
 const genreResult = document.querySelector("#result");
+const mainGenre = document.querySelector("#main-genre");
+const detailsList = document.querySelector('#details-list');
 
 dropArea.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -73,20 +75,45 @@ function uploadFile(file) {
         dropArea.style.display = 'flex';
         genreResult.style.display = 'flex';
 
+        const mainResult = data.result[0].genre;
+        mainGenre.textContent = `Predicted Genre: ${mainResult}`;
+
         const list = data.result
             .map(item => `${item.genre} - ${(item.probability * 100).toFixed(1)}%`)
-            .join("<br>")
+            .join("<br>");
         
-            genreResult.innerHTML = list;
+        detailsList.innerHTML = list;
+
+        detailsHeader.style.display = 'block';
     })
     .catch(error => {
         loader.style.display = 'none';
         dropArea.style.display = 'flex';
         genreResult.style.display = 'flex';
-        genreResult.textContent = "Sorry, an error occured!";
+
+        mainGenre.textContent = "Sorry, an error occured!";
+
+        detailsHeader.style.display = 'none';
+        detailsList.classList.remove('open');
+        detailsList.innerHTML = '';
+
         console.error('Error:', error);
     });
 }
+
+// ============= RESULT BOX =============
+const detailsHeader = document.querySelector('#details-header');
+const chevronIcon = document.querySelector('#details-header i');
+
+detailsHeader.addEventListener('click', () => {
+    detailsList.classList.toggle('open');
+    
+    if (detailsList.classList.contains('open')) {
+        chevronIcon.classList.replace('fa-caret-right', 'fa-caret-down');
+    } else {
+        chevronIcon.classList.replace('fa-caret-down', 'fa-caret-right');
+    }
+});
 
 // ============= AUDIO PLAYER =============
 const audioPlayer = document.querySelector("#audio-player");
