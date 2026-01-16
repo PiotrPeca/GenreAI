@@ -57,6 +57,32 @@ The repository contains code for several deep learning architectures located in 
 4.  The model will be saved to `ml_part/models/`.
     *Ensure your `app/src/classifier.py` is configured to load the correct model file.*
 
+### 🚀 GPU Training (Windows with WSL2)
+
+To significantly speed up model training using NVIDIA GPU on Windows:
+
+1.  **Follow the official TensorFlow GPU setup guide:**  
+    [TensorFlow GPU Installation for Windows (WSL2)](https://www.tensorflow.org/install/pip?hl=pl#windows-wsl2)
+
+2.  **Modify `requirements.txt`:**  
+    Uncomment the line:
+    ```text
+    tensorflow[and-cuda]
+    ```
+    And comment out the regular `tensorflow` line.
+
+3.  **Open VS Code via WSL:**  
+    Launch your project folder through WSL in VS Code to ensure proper environment compatibility.
+
+4.  **Enable GPU in notebooks:**  
+    In each training notebook (`CNN_1.ipynb`, `CNN_2.ipynb`, etc.), find and uncomment the line marked as:
+    ```python
+    # GPU training
+    ```
+
+**For other operating systems (Linux, macOS):**  
+Refer to the [official TensorFlow installation guide](https://www.tensorflow.org/install/pip?hl=pl) for platform-specific GPU setup instructions.
+
 ---
 
 ## 🚀 How to Run Locally
